@@ -1,0 +1,24 @@
+#root
+.vs
+.vscode
+/Debug
+/Release
+/x64
+
+# project setting
+/projs/*/*
+!/projs/*/*.vcxproj
+!/projs/*/*.props
+!/projs/*/*.filters
+
+# third_party setting
+/third_party/*/*
+!/third_party/*/*.md
+!/third_party/*/def_file/
+!/third_party/*/pl_file/
+!/third_party/*/src/
+!/third_party/*/proj/
+/third_party/*/proj/*
+!/third_party/*/proj/*.vcxproj
+!/third_party/*/proj/*.props
+!/third_party/*/proj/*.filters
