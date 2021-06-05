@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibSrcPath>$(ProjectDir)..\src\</LibSrcPath>
+    <LibIncludePath>$(ProjectDir)..\include\</LibIncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>ZLIB;ZLIB_SHARED;OPENSSL_SYS_WIN32;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_USE_APPLINK;LIBZ="ZLIB1";L_ENDIAN;OPENSSL_PIC;OPENSSLDIR="";ENGINESDIR="";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(LibSrcPath)include\;$(LibSrcPath)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>$(LibSrcPath)libssl.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(LibSrcPath)include\*" "$(LibIncludePath)openssl\" /Y /C /Q /R /S /E /D</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibSrcPath">
+      <Value>$(LibSrcPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibIncludePath">
+      <Value>$(LibIncludePath)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
