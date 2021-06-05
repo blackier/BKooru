@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibSrcPath>$(ProjectDir)..\src\</LibSrcPath>
+    <LibIncludePath>$(ProjectDir)..\include\</LibIncludePath>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>xcopy "$(LibSrcPath)*.h" "$(LibIncludePath)minizip\" /Y /C /Q /R /D</Command>
+    </PostBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_STDINT_H;HAVE_INTTYPES_H;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;MZ_ZIP_SIGNING;HAVE_PKCRYPT;HAVE_WZAES;HAVE_ZLIB;HAVE_BZIP2;BZ_NO_STDIO;HAVE_CONFIG_H;HAVE_LIMITS_H;HAVE_STRING_H;HAVE_MEMORY_H;HAVE_STDBOOL_H;HAVE_IMMINTRIN_H;HAVE_LZMA;LZMA_API_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(LibSrcPath)lib\bzip2\;$(LibSrcPath)lib\liblzma\;$(LibSrcPath)lib\liblzma\api\;$(LibSrcPath)lib\liblzma\check\;$(LibSrcPath)lib\liblzma\common\;$(LibSrcPath)lib\liblzma\lz\;$(LibSrcPath)lib\liblzma\lzma\;$(LibSrcPath)lib\liblzma\rangecoder\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibSrcPath">
+      <Value>$(LibSrcPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibIncludePath">
+      <Value>$(LibIncludePath)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

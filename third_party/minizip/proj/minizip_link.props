@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <minizipIncludePath>$(SolutionDir)third_party\minizip\include\</minizipIncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_STDINT_H;HAVE_INTTYPES_H;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;MZ_ZIP_SIGNING;HAVE_PKCRYPT;HAVE_WZAES;HAVE_ZLIB;HAVE_BZIP2;BZ_NO_STDIO;HAVE_CONFIG_H;HAVE_LIMITS_H;HAVE_STRING_H;HAVE_MEMORY_H;HAVE_STDBOOL_H;HAVE_IMMINTRIN_H;HAVE_LZMA;LZMA_API_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(minizipIncludePath);$(minizipIncludePath)minizip\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(OutDir)minizip.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="minizipIncludePath">
+      <Value>$(minizipIncludePath)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
