@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\src\rdrand.asm">
+      <UseSafeExceptionHandlers Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</UseSafeExceptionHandlers>
+      <UseSafeExceptionHandlers Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</UseSafeExceptionHandlers>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">3</PreserveIdentifierCase>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">3</PreserveIdentifierCase>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_M_X86</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_M_X86</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_M_X64</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_M_X64</PreprocessorDefinitions>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(FileName)-x64.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(FileName)-x64.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(FileName)-x86.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(FileName)-x86.obj</ObjectFileName>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">3</PreserveIdentifierCase>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Release|x64'">3</PreserveIdentifierCase>
+    </MASM>
+    <MASM Include="..\src\x64dll.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_M_X64</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_M_X64</PreprocessorDefinitions>
+    </MASM>
+    <MASM Include="..\src\x64masm.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\3way.cpp" />
+    <ClCompile Include="..\src\adler32.cpp" />
+    <ClCompile Include="..\src\algebra.cpp" />
+    <ClCompile Include="..\src\algparam.cpp" />
+    <ClCompile Include="..\src\arc4.cpp" />
+    <ClCompile Include="..\src\aria.cpp" />
+    <ClCompile Include="..\src\ariatab.cpp" />
+    <ClCompile Include="..\src\aria_simd.cpp" />
+    <ClCompile Include="..\src\asn.cpp" />
+    <ClCompile Include="..\src\authenc.cpp" />
+    <ClCompile Include="..\src\base32.cpp" />
+    <ClCompile Include="..\src\base64.cpp" />
+    <ClCompile Include="..\src\basecode.cpp" />
+    <ClCompile Include="..\src\bfinit.cpp" />
+    <ClCompile Include="..\src\blake2.cpp" />
+    <ClCompile Include="..\src\blake2b_simd.cpp" />
+    <ClCompile Include="..\src\blake2s_simd.cpp" />
+    <ClCompile Include="..\src\blowfish.cpp" />
+    <ClCompile Include="..\src\blumshub.cpp" />
+    <ClCompile Include="..\src\camellia.cpp" />
+    <ClCompile Include="..\src\cast.cpp" />
+    <ClCompile Include="..\src\casts.cpp" />
+    <ClCompile Include="..\src\cbcmac.cpp" />
+    <ClCompile Include="..\src\ccm.cpp" />
+    <ClCompile Include="..\src\chacha.cpp" />
+    <ClCompile Include="..\src\chachapoly.cpp" />
+    <ClCompile Include="..\src\chacha_avx.cpp">
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <EnableEnhancedInstructionSet Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <ClCompile Include="..\src\chacha_simd.cpp" />
+    <ClCompile Include="..\src\cham.cpp" />
+    <ClCompile Include="..\src\cham_simd.cpp" />
+    <ClCompile Include="..\src\channels.cpp" />
+    <ClCompile Include="..\src\cmac.cpp" />
+    <ClCompile Include="..\src\cpu.cpp" />
+    <ClCompile Include="..\src\crc.cpp" />
+    <ClCompile Include="..\src\crc_simd.cpp" />
+    <ClCompile Include="..\src\cryptlib.cpp" />
+    <ClCompile Include="..\src\darn.cpp" />
+    <ClCompile Include="..\src\default.cpp" />
+    <ClCompile Include="..\src\des.cpp" />
+    <ClCompile Include="..\src\dessp.cpp" />
+    <ClCompile Include="..\src\dh.cpp" />
+    <ClCompile Include="..\src\dh2.cpp" />
+    <ClCompile Include="..\src\dll.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\src\donna_32.cpp" />
+    <ClCompile Include="..\src\donna_64.cpp" />
+    <ClCompile Include="..\src\donna_sse.cpp" />
+    <ClCompile Include="..\src\dsa.cpp" />
+    <ClCompile Include="..\src\eax.cpp" />
+    <ClCompile Include="..\src\ec2n.cpp" />
+    <ClCompile Include="..\src\ecp.cpp" />
+    <ClCompile Include="..\src\elgamal.cpp" />
+    <ClCompile Include="..\src\emsa2.cpp" />
+    <ClCompile Include="..\src\esign.cpp" />
+    <ClCompile Include="..\src\files.cpp" />
+    <ClCompile Include="..\src\filters.cpp" />
+    <ClCompile Include="..\src\fips140.cpp" />
+    <ClCompile Include="..\src\fipstest.cpp" />
+    <ClCompile Include="..\src\gcm.cpp" />
+    <ClCompile Include="..\src\gcm_simd.cpp" />
+    <ClCompile Include="..\src\gf256.cpp" />
+    <ClCompile Include="..\src\gf2n.cpp" />
+    <ClCompile Include="..\src\gf2n_simd.cpp" />
+    <ClCompile Include="..\src\gf2_32.cpp" />
+    <ClCompile Include="..\src\gfpcrypt.cpp" />
+    <ClCompile Include="..\src\gost.cpp" />
+    <ClCompile Include="..\src\gzip.cpp" />
+    <ClCompile Include="..\src\hc128.cpp" />
+    <ClCompile Include="..\src\hc256.cpp" />
+    <ClCompile Include="..\src\hex.cpp" />
+    <ClCompile Include="..\src\hight.cpp" />
+    <ClCompile Include="..\src\hmac.cpp" />
+    <ClCompile Include="..\src\hrtimer.cpp" />
+    <ClCompile Include="..\src\ida.cpp" />
+    <ClCompile Include="..\src\idea.cpp" />
+    <ClCompile Include="..\src\integer.cpp" />
+    <ClCompile Include="..\src\iterhash.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\src\kalyna.cpp" />
+    <ClCompile Include="..\src\kalynatab.cpp" />
+    <ClCompile Include="..\src\keccak.cpp" />
+    <ClCompile Include="..\src\keccak_core.cpp" />
+    <ClCompile Include="..\src\keccak_simd.cpp" />
+    <ClCompile Include="..\src\lea.cpp" />
+    <ClCompile Include="..\src\lea_simd.cpp" />
+    <ClCompile Include="..\src\luc.cpp" />
+    <ClCompile Include="..\src\mars.cpp" />
+    <ClCompile Include="..\src\marss.cpp" />
+    <ClCompile Include="..\src\md2.cpp" />
+    <ClCompile Include="..\src\md4.cpp" />
+    <ClCompile Include="..\src\md5.cpp" />
+    <ClCompile Include="..\src\misc.cpp" />
+    <ClCompile Include="..\src\modes.cpp" />
+    <ClCompile Include="..\src\mqueue.cpp" />
+    <ClCompile Include="..\src\mqv.cpp" />
+    <ClCompile Include="..\src\nbtheory.cpp" />
+    <ClCompile Include="..\src\oaep.cpp" />
+    <ClCompile Include="..\src\osrng.cpp" />
+    <ClCompile Include="..\src\padlkrng.cpp" />
+    <ClCompile Include="..\src\panama.cpp" />
+    <ClCompile Include="..\src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\src\pkcspad.cpp" />
+    <ClCompile Include="..\src\poly1305.cpp" />
+    <ClCompile Include="..\src\polynomi.cpp" />
+    <ClCompile Include="..\src\pssr.cpp" />
+    <ClCompile Include="..\src\pubkey.cpp" />
+    <ClCompile Include="..\src\queue.cpp" />
+    <ClCompile Include="..\src\rabbit.cpp" />
+    <ClCompile Include="..\src\rabin.cpp" />
+    <ClCompile Include="..\src\randpool.cpp" />
+    <ClCompile Include="..\src\rc2.cpp" />
+    <ClCompile Include="..\src\rc5.cpp" />
+    <ClCompile Include="..\src\rc6.cpp" />
+    <ClCompile Include="..\src\rdrand.cpp" />
+    <ClCompile Include="..\src\rdtables.cpp" />
+    <ClCompile Include="..\src\rijndael.cpp" />
+    <ClCompile Include="..\src\rijndael_simd.cpp" />
+    <ClCompile Include="..\src\ripemd.cpp" />
+    <ClCompile Include="..\src\rng.cpp" />
+    <ClCompile Include="..\src\rsa.cpp" />
+    <ClCompile Include="..\src\rw.cpp" />
+    <ClCompile Include="..\src\safer.cpp" />
+    <ClCompile Include="..\src\salsa.cpp" />
+    <ClCompile Include="..\src\scrypt.cpp" />
+    <ClCompile Include="..\src\seal.cpp" />
+    <ClCompile Include="..\src\seed.cpp" />
+    <ClCompile Include="..\src\serpent.cpp" />
+    <ClCompile Include="..\src\sha.cpp" />
+    <ClCompile Include="..\src\sha3.cpp" />
+    <ClCompile Include="..\src\shacal2.cpp" />
+    <ClCompile Include="..\src\shacal2_simd.cpp" />
+    <ClCompile Include="..\src\shake.cpp" />
+    <ClCompile Include="..\src\shark.cpp" />
+    <ClCompile Include="..\src\sharkbox.cpp" />
+    <ClCompile Include="..\src\sha_simd.cpp" />
+    <ClCompile Include="..\src\simeck.cpp" />
+    <ClCompile Include="..\src\simeck_simd.cpp" />
+    <ClCompile Include="..\src\simon.cpp" />
+    <ClCompile Include="..\src\simon128_simd.cpp" />
+    <ClCompile Include="..\src\simon64_simd.cpp" />
+    <ClCompile Include="..\src\simple.cpp" />
+    <ClCompile Include="..\src\skipjack.cpp" />
+    <ClCompile Include="..\src\sm3.cpp" />
+    <ClCompile Include="..\src\sm4.cpp" />
+    <ClCompile Include="..\src\sm4_simd.cpp" />
+    <ClCompile Include="..\src\sosemanuk.cpp" />
+    <ClCompile Include="..\src\speck.cpp" />
+    <ClCompile Include="..\src\speck128_simd.cpp" />
+    <ClCompile Include="..\src\speck64_simd.cpp" />
+    <ClCompile Include="..\src\square.cpp" />
+    <ClCompile Include="..\src\squaretb.cpp" />
+    <ClCompile Include="..\src\sse_simd.cpp" />
+    <ClCompile Include="..\src\strciphr.cpp" />
+    <ClCompile Include="..\src\tea.cpp" />
+    <ClCompile Include="..\src\tftables.cpp" />
+    <ClCompile Include="..\src\threefish.cpp" />
+    <ClCompile Include="..\src\tiger.cpp" />
+    <ClCompile Include="..\src\tigertab.cpp" />
+    <ClCompile Include="..\src\ttmac.cpp" />
+    <ClCompile Include="..\src\tweetnacl.cpp" />
+    <ClCompile Include="..\src\twofish.cpp" />
+    <ClCompile Include="..\src\vmac.cpp" />
+    <ClCompile Include="..\src\wake.cpp" />
+    <ClCompile Include="..\src\whrlpool.cpp" />
+    <ClCompile Include="..\src\xed25519.cpp" />
+    <ClCompile Include="..\src\xtr.cpp" />
+    <ClCompile Include="..\src\xtrcrypt.cpp" />
+    <ClCompile Include="..\src\zdeflate.cpp" />
+    <ClCompile Include="..\src\zinflate.cpp" />
+    <ClCompile Include="..\src\zlib.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a10a8121-9c89-4afa-adfe-f59b2adc5b4e}</ProjectGuid>
+    <RootNamespace>cryptopp</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="cryptopp_build.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="cryptopp_build.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="cryptopp_build.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="cryptopp_build.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>
