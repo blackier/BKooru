@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibSrcPath>$(ProjectDir)..\src\</LibSrcPath>
+    <LibIncludePath>$(ProjectDir)..\include\</LibIncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>xcopy "$(LibSrcPath)Rx\v2\src\*" "$(LibIncludePath)" /Y /C /Q /R /D /S /E</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibSrcPath">
+      <Value>$(LibSrcPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibIncludePath">
+      <Value>$(LibIncludePath)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
