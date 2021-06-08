@@ -9,6 +9,9 @@
     <PostBuildEvent>
       <Command>xcopy "$(LibSrcPath)\src\*.hpp" "$(LibincludePath)pugixml\" /Y /C /Q /R /S /E /D</Command>
     </PostBuildEvent>
+    <ClCompile>
+      <PreprocessorDefinitions>PUGIXML_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="LibSrcPath">

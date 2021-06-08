@@ -9,6 +9,7 @@
       <AdditionalDependencies>$(OutDir)pugixml.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
+      <PreprocessorDefinitions>PUGIXML_API=__declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(pugixmlIncludePath);$(pugixmlIncludePath)pugixml\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
