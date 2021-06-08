@@ -15,6 +15,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <Link>
+      <ErrorReporting>NoErrorReport</ErrorReporting>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <BaseAddress>0x42900000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <PreventDllBinding>true</PreventDllBinding>
+      <ImageHasSafeExceptionHandlers Condition="'$(Platform)'=='Win32'">true</ImageHasSafeExceptionHandlers>
+    </Link>
     <PostBuildEvent>
       <Command>xcopy "$(LibSrcPath)*.h" "$(LibIncludePath)cryptopp\" /Y /C /Q /R /D</Command>
     </PostBuildEvent>

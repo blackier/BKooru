@@ -35,6 +35,22 @@
       <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">3</PreserveIdentifierCase>
       <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Release|x64'">3</PreserveIdentifierCase>
     </MASM>
+    <MASM Include="..\src\rdseed.asm">
+      <UseSafeExceptionHandlers Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</UseSafeExceptionHandlers>
+      <UseSafeExceptionHandlers Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</UseSafeExceptionHandlers>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(FileName)-x86.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(FileName)-x86.obj</ObjectFileName>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">_M_X86;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">3</PreserveIdentifierCase>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">_M_X86;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">3</PreserveIdentifierCase>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)%(FileName)-x64.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)%(FileName)-x64.obj</ObjectFileName>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_M_X64</PreprocessorDefinitions>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Release|x64'">3</PreserveIdentifierCase>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_M_X64</PreprocessorDefinitions>
+      <PreserveIdentifierCase Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">3</PreserveIdentifierCase>
+    </MASM>
     <MASM Include="..\src\x64dll.asm">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -51,6 +67,7 @@
     <ClCompile Include="..\src\adler32.cpp" />
     <ClCompile Include="..\src\algebra.cpp" />
     <ClCompile Include="..\src\algparam.cpp" />
+    <ClCompile Include="..\src\allocate.cpp" />
     <ClCompile Include="..\src\arc4.cpp" />
     <ClCompile Include="..\src\aria.cpp" />
     <ClCompile Include="..\src\ariatab.cpp" />
@@ -201,10 +218,8 @@
     <ClCompile Include="..\src\sharkbox.cpp" />
     <ClCompile Include="..\src\sha_simd.cpp" />
     <ClCompile Include="..\src\simeck.cpp" />
-    <ClCompile Include="..\src\simeck_simd.cpp" />
     <ClCompile Include="..\src\simon.cpp" />
     <ClCompile Include="..\src\simon128_simd.cpp" />
-    <ClCompile Include="..\src\simon64_simd.cpp" />
     <ClCompile Include="..\src\simple.cpp" />
     <ClCompile Include="..\src\skipjack.cpp" />
     <ClCompile Include="..\src\sm3.cpp" />
@@ -213,7 +228,6 @@
     <ClCompile Include="..\src\sosemanuk.cpp" />
     <ClCompile Include="..\src\speck.cpp" />
     <ClCompile Include="..\src\speck128_simd.cpp" />
-    <ClCompile Include="..\src\speck64_simd.cpp" />
     <ClCompile Include="..\src\square.cpp" />
     <ClCompile Include="..\src\squaretb.cpp" />
     <ClCompile Include="..\src\sse_simd.cpp" />
@@ -232,6 +246,7 @@
     <ClCompile Include="..\src\xed25519.cpp" />
     <ClCompile Include="..\src\xtr.cpp" />
     <ClCompile Include="..\src\xtrcrypt.cpp" />
+    <ClCompile Include="..\src\xts.cpp" />
     <ClCompile Include="..\src\zdeflate.cpp" />
     <ClCompile Include="..\src\zinflate.cpp" />
     <ClCompile Include="..\src\zlib.cpp" />

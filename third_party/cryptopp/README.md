@@ -1,3 +1,3 @@
 Source code: https://github.com/weidai11/cryptopp
 
-Current version: 8.2
+Current version: 8.5
