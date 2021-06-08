@@ -9,16 +9,13 @@
     <ClCompile>
       <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">CARES_BUILDING_LIBRARY;DEBUGBUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)'=='Release'">CARES_BUILDING_LIBRARY;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(LibSrcPath)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LibSrcPath)include;$(LibSrcPath)src\lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(LibSrcPath)ares.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D
-xcopy "$(LibSrcPath)ares_build.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D
-xcopy "$(LibSrcPath)ares_rules.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D
-xcopy "$(LibSrcPath)ares_version.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D</Command>
+      <Command>xcopy "$(LibSrcPath)include\*.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
