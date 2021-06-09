@@ -1,3 +1,3 @@
 Source code: https://github.com/zlib-ng/minizip-ng
 
-Current version: 2.9.3
+Current version: 3.0.2

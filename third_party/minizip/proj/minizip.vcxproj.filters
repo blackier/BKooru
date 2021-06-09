@@ -13,36 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\lib">
-      <UniqueIdentifier>{a58db9df-13b4-49c4-abcc-b4d824415ea6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\bzip2">
-      <UniqueIdentifier>{e4626ef7-ba45-4403-91c4-ff85e41e3503}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma">
-      <UniqueIdentifier>{a006e50e-2543-44fa-91c3-a3cdd70ec251}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\check">
-      <UniqueIdentifier>{a8d9cbef-fe83-40bc-bf61-437a75492850}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\common">
-      <UniqueIdentifier>{0c11ac50-e1bf-4a8d-ba36-9d89e5d80515}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\api">
-      <UniqueIdentifier>{b9c5ad04-7b4e-4a6d-a3f1-0a6c243f2f1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\api\lzma">
-      <UniqueIdentifier>{007210c5-09e6-415e-9310-b3e8dcc0ad40}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\lz">
-      <UniqueIdentifier>{4a6ff6af-e246-4776-9656-a3cc8a23c598}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\lzma">
-      <UniqueIdentifier>{f206105f-cc92-429b-af46-ca428084450b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\lib\liblzma\rangecoder">
-      <UniqueIdentifier>{3f74ec5f-f5ba-4df4-a88f-b38f2278b0e4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\mz_strm_split.c">
@@ -81,12 +51,6 @@
     <ClCompile Include="..\src\mz_strm_buf.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\mz_strm_bzip.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\mz_strm_lzma.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\mz_strm_mem.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -95,78 +59,6 @@
     </ClCompile>
     <ClCompile Include="..\src\mz_strm_pkcrypt.c">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\decompress.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\huffman.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\randtable.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\blocksort.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\bzlib.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\compress.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\bzip2\crctable.c">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\check\check.c">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\check\crc32_fast.c">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\check\crc32_table.c">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\common\alone_decoder.c">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\common\alone_encoder.c">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\common\common.c">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\common\filter_encoder.c">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lz\lz_decoder.c">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lz\lz_encoder.c">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lz\lz_encoder_mf.c">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lzma\fastpos_table.c">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lzma\lzma_decoder.c">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lzma\lzma_encoder.c">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lzma\lzma_encoder_optimum_fast.c">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lzma\lzma_encoder_optimum_normal.c">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\lzma\lzma_encoder_presets.c">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\liblzma\rangecoder\price_table.c">
-      <Filter>Source Files\lib\liblzma\rangecoder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,12 +95,6 @@
     <ClInclude Include="..\src\mz_strm_buf.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\mz_strm_bzip.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\mz_strm_lzma.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\mz_strm_mem.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -217,120 +103,6 @@
     </ClInclude>
     <ClInclude Include="..\src\mz_strm_pkcrypt.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\bzip2\bzlib.h">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\bzip2\bzlib_private.h">
-      <Filter>Source Files\lib\bzip2</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\check\check.h">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\check\crc_macros.h">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\check\crc32_table_be.h">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\check\crc32_table_le.h">
-      <Filter>Source Files\lib\liblzma\check</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\alone_decoder.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\common.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\filter_encoder.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\index.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\memcmplen.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\sysdefs.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\tuklib_common.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\tuklib_config.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\common\tuklib_integer.h">
-      <Filter>Source Files\lib\liblzma\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma.h">
-      <Filter>Source Files\lib\liblzma\api</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\base.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\check.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\container.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\filter.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\lzma12.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\version.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\api\lzma\vli.h">
-      <Filter>Source Files\lib\liblzma\api\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lz\lz_decoder.h">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lz\lz_encoder.h">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lz\lz_encoder_hash.h">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lz\lz_encoder_hash_table.h">
-      <Filter>Source Files\lib\liblzma\lz</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lzma\fastpos.h">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lzma\lzma_common.h">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lzma\lzma_decoder.h">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lzma\lzma_encoder.h">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lzma\lzma_encoder_private.h">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\lzma\lzma2_encoder.h">
-      <Filter>Source Files\lib\liblzma\lzma</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\rangecoder\price.h">
-      <Filter>Source Files\lib\liblzma\rangecoder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\rangecoder\range_common.h">
-      <Filter>Source Files\lib\liblzma\rangecoder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\rangecoder\range_decoder.h">
-      <Filter>Source Files\lib\liblzma\rangecoder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\rangecoder\range_encoder.h">
-      <Filter>Source Files\lib\liblzma\rangecoder</Filter>
-    </ClInclude>
-    <ClInclude Include="..\src\lib\liblzma\config.h">
-      <Filter>Source Files\lib\liblzma</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

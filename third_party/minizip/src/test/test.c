@@ -1,9 +1,8 @@
 /* test.c - Test bed area
-   Version 2.9.3, May 21, 2020
-   part of the MiniZip project
+   part of the minizip-ng project
 
    Copyright (C) 2018-2020 Nathan Moinvaziri
-     https://github.com/nmoinvaz/minizip
+     https://github.com/zlib-ng/minizip-ng
 
    This program is distributed under the terms of the same license as zlib.
    See the accompanying LICENSE file for the full text of the license.
@@ -86,7 +85,7 @@ int32_t test_utf8(void)
     uint8_t *utf8_string = mz_os_utf8_string_create(test_string, MZ_ENCODING_CODEPAGE_950);
     if (utf8_string == NULL)
         return MZ_BUF_ERROR;
-#if defined(_WINDOWS)
+#if defined(_WIN32)
     wchar_t *unicode_string = mz_os_unicode_string_create((const char *)utf8_string, MZ_ENCODING_UTF8);
     if (unicode_string == NULL)
         return MZ_BUF_ERROR;
@@ -616,7 +615,7 @@ int32_t convert_buffer_to_hex_string(uint8_t *buf, int32_t buf_size, char *hex_s
     return MZ_OK;
 }
 
-#ifndef MZ_ZIP_NO_ENCRYPTION
+#ifndef MZ_ZIP_NO_CRYPTO
 int32_t test_crypt_sha(void)
 {
     void *sha1 = NULL;
@@ -794,7 +793,7 @@ int32_t test_zip_compat_int(zipFile zip, char *filename)
         printf("Failed to create new file in zip (%" PRId32 ")\n", err);
         return err;
     }
-    err = zipWriteInFileInZip(zip, buffer, strlen(buffer));
+    err = zipWriteInFileInZip(zip, buffer, (uint32_t)strlen(buffer));
     if (err != ZIP_OK)
     {
         printf("Failed to write file in zip (%" PRId32 ")\n", err);
@@ -919,7 +918,7 @@ static int32_t test_unzip_compat_int(unzFile unzip)
             return err;
         }
         bytes_read = unzReadCurrentFile(unzip, buffer, sizeof(buffer));
-        if (bytes_read != strlen(test_data))
+        if (bytes_read != (int32_t)strlen(test_data))
         {
             printf("Failed to read zip entry data (%" PRId32 ")\n", err);
             unzCloseCurrentFile(unzip);
@@ -996,6 +995,140 @@ static int32_t test_unzip_compat_int(unzFile unzip)
     return UNZ_OK;
 }
 
+#ifndef MZ_FILE32_API
+#  ifndef NO_FSEEKO
+#    define ftello64 ftello
+#    define fseeko64 fseeko
+#  elif defined(_MSC_VER) && (_MSC_VER >= 1400)
+#    define ftello64 _ftelli64
+#    define fseeko64 _fseeki64
+#  endif
+#endif
+#ifndef ftello64
+#  define ftello64 ftell
+#endif
+#ifndef fseeko64
+#  define fseeko64 fseek
+#endif
+
+static void *ZCALLBACK fopen_file_func(void *opaque, const char *filename, int mode)
+{
+    FILE* file = NULL;
+    const char* mode_fopen = NULL;
+
+    if ((mode & ZLIB_FILEFUNC_MODE_READWRITEFILTER)==ZLIB_FILEFUNC_MODE_READ)
+        mode_fopen = "rb";
+    else if (mode & ZLIB_FILEFUNC_MODE_EXISTING)
+        mode_fopen = "r+b";
+    else if (mode & ZLIB_FILEFUNC_MODE_CREATE)
+        mode_fopen = "wb";
+
+    if ((filename != NULL) && (mode_fopen != NULL))
+        file = fopen(filename, mode_fopen);
+
+    return file;
+}
+
+static unsigned long ZCALLBACK fread_file_func(void *opaque, void *stream, void *buf, unsigned long size)
+{
+    return (unsigned long)fread(buf, 1, (size_t)size, (FILE *)stream);
+}
+
+static unsigned long ZCALLBACK fwrite_file_func(void *opaque, void *stream, const void *buf, unsigned long size)
+{
+    return (unsigned long)fwrite(buf, 1, (size_t)size, (FILE *)stream);
+}
+
+static long ZCALLBACK ftell_file_func(void *opaque, void *stream)
+{
+    return ftell((FILE *)stream);
+}
+
+static ZPOS64_T ZCALLBACK ftell64_file_func(void *opaque, void *stream)
+{
+    return ftello64((FILE *)stream);
+}
+
+static long ZCALLBACK fseek_file_func(void *opaque, void *stream, unsigned long offset, int origin)
+{
+    int fseek_origin = 0;
+    long ret = 0;
+    switch (origin)
+    {
+    case ZLIB_FILEFUNC_SEEK_CUR:
+        fseek_origin = SEEK_CUR;
+        break;
+    case ZLIB_FILEFUNC_SEEK_END:
+        fseek_origin = SEEK_END;
+        break;
+    case ZLIB_FILEFUNC_SEEK_SET:
+        fseek_origin = SEEK_SET;
+        break;
+    default:
+        return -1;
+    }
+    if (fseek((FILE *)stream, offset, fseek_origin) != 0)
+        ret = -1;
+    return ret;
+}
+
+static long ZCALLBACK fseek64_file_func(void *opaque, void *stream, ZPOS64_T offset, int origin)
+{
+    int fseek_origin = 0;
+    long ret = 0;
+    switch (origin)
+    {
+    case ZLIB_FILEFUNC_SEEK_CUR:
+        fseek_origin = SEEK_CUR;
+        break;
+    case ZLIB_FILEFUNC_SEEK_END:
+        fseek_origin = SEEK_END;
+        break;
+    case ZLIB_FILEFUNC_SEEK_SET:
+        fseek_origin = SEEK_SET;
+        break;
+    default:
+        return -1;
+    }
+    if (fseeko64((FILE *)stream, offset, fseek_origin) != 0)
+        ret = -1;
+    return ret;
+}
+
+static int ZCALLBACK fclose_file_func(void *opaque, void *stream)
+{
+    return fclose((FILE *)stream);
+}
+
+static int ZCALLBACK ferror_file_func(void *opaque, void *stream)
+{
+    return ferror((FILE *)stream);
+}
+
+void fill_ioapi32_filefunc(zlib_filefunc_def *pzlib_filefunc_def)
+{
+    pzlib_filefunc_def->zopen_file = fopen_file_func;
+    pzlib_filefunc_def->zread_file = fread_file_func;
+    pzlib_filefunc_def->zwrite_file = fwrite_file_func;
+    pzlib_filefunc_def->ztell_file = ftell_file_func;
+    pzlib_filefunc_def->zseek_file = fseek_file_func;
+    pzlib_filefunc_def->zclose_file = fclose_file_func;
+    pzlib_filefunc_def->zerror_file = ferror_file_func;
+    pzlib_filefunc_def->opaque = NULL;
+}
+
+void fill_ioapi64_filefunc(zlib_filefunc64_def *pzlib_filefunc_def)
+{
+    pzlib_filefunc_def->zopen64_file = (open64_file_func)fopen_file_func;
+    pzlib_filefunc_def->zread_file = fread_file_func;
+    pzlib_filefunc_def->zwrite_file = fwrite_file_func;
+    pzlib_filefunc_def->ztell64_file = ftell64_file_func;
+    pzlib_filefunc_def->zseek64_file = fseek64_file_func;
+    pzlib_filefunc_def->zclose_file = fclose_file_func;
+    pzlib_filefunc_def->zerror_file = ferror_file_func;
+    pzlib_filefunc_def->opaque = NULL;
+}
+
 int32_t test_unzip_compat(void)
 {
     unzFile unzip;
@@ -1014,6 +1147,54 @@ int32_t test_unzip_compat(void)
         return err;
 
     printf("Compat unzip.. OK\n");
+
+    return UNZ_OK;
+}
+
+int32_t test_unzip_compat32(void)
+{
+    unzFile unzip;
+    int32_t err = UNZ_OK;
+    zlib_filefunc_def zlib_filefunc_def;
+
+    fill_ioapi32_filefunc(&zlib_filefunc_def);
+    unzip = unzOpen2("compat.zip", &zlib_filefunc_def);
+    if (unzip == NULL)
+    {
+        printf("Failed to open test zip file\n");
+        return UNZ_PARAMERROR;
+    }
+    err = test_unzip_compat_int(unzip);
+    unzClose(unzip);
+
+    if (err != UNZ_OK)
+        return err;
+
+    printf("Compat unzip with 32-bit ioapi.. OK\n");
+
+    return UNZ_OK;
+}
+
+int32_t test_unzip_compat64(void)
+{
+    unzFile unzip;
+    int32_t err = UNZ_OK;
+    zlib_filefunc64_def zlib_filefunc_def;
+
+    fill_ioapi64_filefunc(&zlib_filefunc_def);
+    unzip = unzOpen2_64("compat.zip", &zlib_filefunc_def);
+    if (unzip == NULL)
+    {
+        printf("Failed to open test zip file\n");
+        return UNZ_PARAMERROR;
+    }
+    err = test_unzip_compat_int(unzip);
+    unzClose(unzip);
+
+    if (err != UNZ_OK)
+        return err;
+
+    printf("Compat unzip with 64-bit ioapi.. OK\n");
 
     return UNZ_OK;
 }
@@ -1043,14 +1224,16 @@ int main(int argc, const char *argv[])
 #ifdef HAVE_COMPAT
     err |= test_zip_compat();
     err |= test_unzip_compat();
+    err |= test_unzip_compat32();
+    err |= test_unzip_compat64();
 #endif
 #endif
 #endif
 
-#if !defined(MZ_ZIP_NO_ENCRYPTION)
 #ifdef HAVE_PKCRYPT
     err |= test_stream_pkcrypt();
 #endif
+#if !defined(MZ_ZIP_NO_CRYPTO)
 #ifdef HAVE_WZAES
     err |= test_stream_wzaes();
 #endif

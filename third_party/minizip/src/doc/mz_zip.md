@@ -3,66 +3,69 @@
 The _mz_zip_ object allows for the reading and writing of the a zip file and its entries.
 
 - [Archive](#archive)
-  - [mz_zip_create](#mzzipcreate)
-  - [mz_zip_delete](#mzzipdelete)
-  - [mz_zip_open](#mzzipopen)
-  - [mz_zip_close](#mzzipclose)
-  - [mz_zip_get_comment](#mzzipgetcomment)
-  - [mz_zip_set_comment](#mzzipsetcomment)
-  - [mz_zip_get_version_madeby](#mzzipgetversionmadeby)
-  - [mz_zip_set_version_madeby](#mzzipsetversionmadeby)
-  - [mz_zip_set_recover](#mzzipsetrecover)
-  - [mz_zip_set_data_descriptor](#mzzipsetdatadescriptor)
-  - [mz_zip_get_stream](#mzzipgetstream)
-  - [mz_zip_set_cd_stream](#mzzipsetcdstream)
-  - [mz_zip_get_cd_mem_stream](#mzzipgetcdmemstream)
-  - [mz_zip_set_number_entry](#mzzipsetnumberentry)
-  - [mz_zip_get_number_entry](#mzzipgetnumberentry)
-  - [mz_zip_set_disk_number_with_cd](#mzzipsetdisknumberwithcd)
-  - [mz_zip_get_disk_number_with_cd](#mzzipgetdisknumberwithcd)
+  - [mz_zip_create](#mz_zip_create)
+  - [mz_zip_delete](#mz_zip_delete)
+  - [mz_zip_open](#mz_zip_open)
+  - [mz_zip_close](#mz_zip_close)
+  - [mz_zip_get_comment](#mz_zip_get_comment)
+  - [mz_zip_set_comment](#mz_zip_set_comment)
+  - [mz_zip_get_version_madeby](#mz_zip_get_version_madeby)
+  - [mz_zip_set_version_madeby](#mz_zip_set_version_madeby)
+  - [mz_zip_set_recover](#mz_zip_set_recover)
+  - [mz_zip_set_data_descriptor](#mz_zip_set_data_descriptor)
+  - [mz_zip_get_stream](#mz_zip_get_stream)
+  - [mz_zip_set_cd_stream](#mz_zip_set_cd_stream)
+  - [mz_zip_get_cd_mem_stream](#mz_zip_get_cd_mem_stream)
+  - [mz_zip_set_number_entry](#mz_zip_set_number_entry)
+  - [mz_zip_get_number_entry](#mz_zip_get_number_entry)
+  - [mz_zip_set_disk_number_with_cd](#mz_zip_set_disk_number_with_cd)
+  - [mz_zip_get_disk_number_with_cd](#mz_zip_get_disk_number_with_cd)
 - [Entry I/O](#entry-io)
-  - [mz_zip_entry_is_open](#mzzipentryisopen)
-  - [mz_zip_entry_read_open](#mzzipentryreadopen)
-  - [mz_zip_entry_read](#mzzipentryread)
-  - [mz_zip_entry_read_close](#mzzipentryreadclose)
-  - [mz_zip_entry_write_open](#mzzipentrywriteopen)
-  - [mz_zip_entry_write](#mzzipentrywrite)
-  - [mz_zip_entry_write_close](#mzzipentrywriteclose)
-  - [mz_zip_entry_close_raw](#mzzipentrycloseraw)
-  - [mz_zip_entry_close](#mzzipentryclose)
+  - [mz_zip_entry_is_open](#mz_zip_entry_is_open)
+  - [mz_zip_entry_read_open](#mz_zip_entry_read_open)
+  - [mz_zip_entry_read](#mz_zip_entry_read)
+  - [mz_zip_entry_read_close](#mz_zip_entry_read_close)
+  - [mz_zip_entry_write_open](#mz_zip_entry_write_open)
+  - [mz_zip_entry_write](#mz_zip_entry_write)
+  - [mz_zip_entry_write_close](#mz_zip_entry_write_close)
+  - [mz_zip_entry_seek_local_header](#mz_zip_entry_seek_local_header)
+  - [mz_zip_entry_close_raw](#mz_zip_entry_close_raw)
+  - [mz_zip_entry_close](#mz_zip_entry_close)
 - [Entry Enumeration](#entry-enumeration)
-  - [mz_zip_entry_is_dir](#mzzipentryisdir)
-  - [mz_zip_entry_is_symlink](#mzzipentryissymlink)
-  - [mz_zip_entry_get_info](#mzzipentrygetinfo)
-  - [mz_zip_entry_get_local_info](#mzzipentrygetlocalinfo)
-  - [mz_zip_get_entry](#mzzipgetentry)
-  - [mz_zip_goto_entry](#mzzipgotoentry)
-  - [mz_zip_goto_first_entry](#mzzipgotofirstentry)
-  - [mz_zip_goto_next_entry](#mzzipgotonextentry)
-  - [mz_zip_locate_entry](#mzziplocateentry)
-  - [mz_zip_locate_first_entry](#mzziplocatefirstentry)
-  - [mz_zip_locate_next_entry](#mzziplocatenextentry)
+  - [mz_zip_entry_is_dir](#mz_zip_entry_is_dir)
+  - [mz_zip_entry_is_symlink](#mz_zip_entry_is_symlink)
+  - [mz_zip_entry_get_info](#mz_zip_entry_get_info)
+  - [mz_zip_entry_get_local_info](#mz_zip_entry_get_local_info)
+  - [mz_zip_get_entry](#mz_zip_get_entry)
+  - [mz_zip_goto_entry](#mz_zip_goto_entry)
+  - [mz_zip_goto_first_entry](#mz_zip_goto_first_entry)
+  - [mz_zip_goto_next_entry](#mz_zip_goto_next_entry)
+  - [mz_zip_locate_entry](#mz_zip_locate_entry)
+  - [mz_zip_locate_first_entry](#mz_zip_locate_first_entry)
+  - [mz_zip_locate_next_entry](#mz_zip_locate_next_entry)
 - [System Attributes](#system-attributes)
-  - [mz_zip_attrib_is_dir](#mzzipattribisdir)
-  - [mz_zip_attrib_is_symlink](#mzzipattribissymlink)
-  - [mz_zip_attrib_convert](#mzzipattribconvert)
-  - [mz_zip_attrib_posix_to_win32](#mzzipattribposixtowin32)
-  - [mz_zip_attrib_win32_to_posix](#mzzipattribwin32toposix)
+  - [mz_zip_attrib_is_dir](#mz_zip_attrib_is_dir)
+  - [mz_zip_attrib_is_symlink](#mz_zip_attrib_is_symlink)
+  - [mz_zip_attrib_convert](#mz_zip_attrib_convert)
+  - [mz_zip_attrib_posix_to_win32](#mz_zip_attrib_posix_to_win32)
+  - [mz_zip_attrib_win32_to_posix](#mz_zip_attrib_win32_to_posix)
 - [Extrafield](#extrafield)
-  - [mz_zip_extrafield_find](#mzzipextrafieldfind)
-  - [mz_zip_extrafield_contains](#mzzipextrafieldcontains)
-  - [mz_zip_extrafield_read](#mzzipextrafieldread)
-  - [mz_zip_extrafield_write](#mzzipextrafieldwrite)
+  - [mz_zip_extrafield_find](#mz_zip_extrafield_find)
+  - [mz_zip_extrafield_contains](#mz_zip_extrafield_contains)
+  - [mz_zip_extrafield_read](#mz_zip_extrafield_read)
+  - [mz_zip_extrafield_write](#mz_zip_extrafield_write)
 - [Time/Date](#timedate)
-  - [mz_zip_dosdate_to_tm](#mzzipdosdatetotm)
-  - [mz_zip_dosdate_to_time_t](#mzzipdosdatetotimet)
-  - [mz_zip_time_t_to_tm](#mzziptimettotm)
-  - [mz_zip_time_t_to_dos_date](#mzziptimettodosdate)
-  - [mz_zip_tm_to_dosdate](#mzziptmtodosdate)
-  - [mz_zip_ntfs_to_unix_time](#mzzipntfstounixtime)
-  - [mz_zip_unix_to_ntfs_time](#mzzipunixtontfstime)
+  - [mz_zip_dosdate_to_tm](#mz_zip_dosdate_to_tm)
+  - [mz_zip_dosdate_to_time_t](#mz_zip_dosdate_to_time_t)
+  - [mz_zip_time_t_to_tm](#mz_zip_time_t_to_tm)
+  - [mz_zip_time_t_to_dos_date](#mz_zip_time_t_to_dos_date)
+  - [mz_zip_tm_to_dosdate](#mz_zip_tm_to_dosdate)
+  - [mz_zip_ntfs_to_unix_time](#mz_zip_ntfs_to_unix_time)
+  - [mz_zip_unix_to_ntfs_time](#mz_zip_unix_to_ntfs_time)
 - [Path](#path)
-  - [mz_zip_path_compare](#mzzippathcompare)
+  - [mz_zip_path_compare](#mz_zip_path_compare)
+- [String](#string)
+  - [mz_zip_get_compression_method_string](#mz_zip_get_compression_method_string)
 
 ## Archive
 
@@ -506,7 +509,7 @@ if (mz_zip_entry_is_open(zip_handle) == MZ_OK)
 
 Opens for reading the current entry in the zip file. To navigate to an entry use _mz_zip_goto_first_entry_, _mz_zip_goto_next_entry_, or _mz_zip_locate_entry_.
 
-Normally, when reading from a zip entry, the minizip library will automatically decrypt and decompress the entry data. To read the raw zip entry data, set the raw parameter to 1. This is useful if you want access to the raw gzip data (assuming the entry is gzip compressed).
+Normally, when reading from a zip entry, the data will be automatically decrypted and decompressed. To read the raw zip entry data, set the raw parameter to 1. This is useful if you want access to the raw gzip data (assuming the entry is gzip compressed).
 
 **Arguments**
 |Type|Name|Description|
@@ -691,6 +694,32 @@ int64_t uncompressed size = 0;
 int32_t err = mz_zip_entry_write_close(zip_handle, crc32, compressed_size, uncompressed_size);
 if (err == MZ_OK)
     printf("Zip file entry closed for writing\n");
+```
+
+### mz_zip_entry_seek_local_header
+Seeks to the local header for the entry.
+
+**Arguments**
+|Type|Name|Description|
+|-|-|-|
+|void *|handle|_mz_zip_ instance|
+
+**Return**
+|Type|Description|
+|-|-|
+|int32_t|[MZ_ERROR](mz_error.md) code, MZ_OK if successful.|
+
+**Example**
+```
+int32_t err = mz_zip_goto_first_entry(zip_handle);
+if (err == MZ_OK)
+    err = mz_zip_entry_seek_local_header(zip_handle);
+if (err == MZ_OK) {
+    void *stream = NULL;
+    mz_zip_get_stream(zip_handle, &stream);
+    int64_t position = mz_stream_tell(stream);
+    printf("Position of local header of first entry: %lld\n", position);
+}
 ```
 
 ### mz_zip_entry_close_raw
@@ -1225,6 +1254,7 @@ Seeks using a _mz_stream_ to an extra field by its type and returns its length.
 |-|-|-|
 |void *|stream|_mz_stream_ instance|
 |uint16_t|type|Extra field type indentifier (See [PKWARE zip app note](zip/appnote.iz.txt) section 4.5.2)|
+|int32_t|max_seek|Maximum length to search for extrafield|
 |uint16_t *|length|Pointer to extra field length|
 
 **Return**
@@ -1244,7 +1274,7 @@ mz_stream_mem_create(&file_extra_stream);
 mz_stream_mem_set_buffer(file_extra_stream, (void *)file_info->extrafield,
     file_info->extrafield_size);
 
-if (mz_zip_extrafield_find(file_extra_stream, MZ_ZIP_EXTENSION_AES, &extrafield_length) == MZ_OK)
+if (mz_zip_extrafield_find(file_extra_stream, MZ_ZIP_EXTENSION_AES, INT32_MAX, &extrafield_length) == MZ_OK)
     printf("Found AES extra field, length %d\n", extrafield_length);
 else
     printf("Unable to find AES extra field in zip entry\n");
@@ -1542,4 +1572,26 @@ if (mz_zip_entry_get_info(zip_handle, &file_info) == MZ_OK) {
     else
         printf("Not found %s\n", search_path);
 }
+```
+
+## String
+
+### mz_zip_get_compression_method_string
+
+Gets a string representing the compression method.
+
+**Arguments**
+|Type|Name|Description|
+|-|-|-|
+|int32_t|compression_method|Compression method index|
+
+**Return**
+|Type|Description|
+|-|-|
+|const char *|String representing compression method or "?" if not found|
+
+**Example**
+```
+const char *method = mz_zip_get_compression_method_string(MZ_ZIP_COMPRESS_METHOD_LZMA);
+printf("Compression method %s\n", method);
 ```

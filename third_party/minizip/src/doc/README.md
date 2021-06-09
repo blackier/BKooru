@@ -1,7 +1,10 @@
-# Minizip Documentation  <!-- omit in toc -->
+# minizip-ng Documentation  <!-- omit in toc -->
+
+### Table of Contents
 
 - [API](#api)
 - [Limitations](#limitations)
+- [Xcode Instructions](#xcode-instructions)
 - [Zlib Configuration](#zlib-configuration)
 - [Upgrading from 1.x](#upgrading-from-1x)
 - [Security Considerations](#security-considerations)
@@ -52,6 +55,13 @@ The zip reader and writer interface provides support for extended hash algorithm
 * Windows Explorer zip extraction utility does not support disk splitting. [1](https://stackoverflow.com/questions/31286707/the-same-volume-can-not-be-used-as-both-the-source-and-destination)
 * macOS archive utility does not properly support ZIP files over 4GB. [1](http://web.archive.org/web/20140331005235/http://www.springyarchiver.com/blog/topic/topic/203) [2](https://bitinn.net/10716/)
 
+## Xcode Instructions
+
+To create an Xcode project with CMake use:
+```
+cmake -G Xcode .
+```
+
 ## Zlib Configuration
 
 By default, if zlib is not found, it will be pulled as an external project and installed. This requires [Git](https://git-scm.com/) to be installed and available to your command interpreter.
@@ -64,7 +74,7 @@ By default, if zlib is not found, it will be pulled as an external project and i
 To compile using zlib-ng use the following cmake args:
 
 ```
--DZLIB_REPOSITORY=https://github.com/Dead2/zlib-ng -DZLIB_TAG=develop
+-DZLIB_REPOSITORY=https://github.com/zlib-ng/zlib-ng -DZLIB_TAG=develop
 ```
 **Compiling and Installing Zlib (Windows)**
 
@@ -93,7 +103,7 @@ instance, some #defines will have to be set as they have changed.
 
 |1.x|2.x|Description|
 |-|-|:-|
-||HAVE_ZLIB|Compile with ZLIB library. Older verisons of Minizip required ZLIB. It is now possible to alternatively compile only using liblzma library.|
+||HAVE_ZLIB|Compile with ZLIB library. Older versions of Minizip required ZLIB. It is now possible to alternatively compile only using liblzma library.|
 ||HAVE_LZMA|Compile with LZMA support.|
 |HAVE_BZIP2|HAVE_BZIP2|Compile with BZIP2 library support.|
 |HAVE_APPLE_COMPRESSION|HAVE_LIBCOMP|Compile using Apple Compression library.|
@@ -107,15 +117,13 @@ instance, some #defines will have to be set as they have changed.
 ||MZ_ZIP_NO_COMPRESSION|Intended to reduce compilation size if not using zipping functionality.|
 ||MZ_ZIP_NO_COMPRESSION|Intended to reduce compilation size if not using zipping functionality.|
 
-At a minimum HAVE_ZLIB and HAVE_PKCRYPT will be necessary to be defined for drop-in replacement. To determine which files to drop in, see the Contents section of the [README](https://github.com/nmoinvaz/minizip/blob/master/README.md).
-
-The compatibility layer for 1.x does not currently provide support for the `ioapi` interface; it has been replaced with a new streaming interface. It is possible to create a stream interface in a similar way that you would have created an  ioapi interface.
+At a minimum HAVE_ZLIB and HAVE_PKCRYPT will be necessary to be defined for drop-in replacement. To determine which files to drop in, see the Contents section of the [README](https://github.com/zlib-ng/minizip-ng/blob/master/README.md).
 
 ## Security Considerations
 
 ### WinZip AES <!-- omit in toc -->
 
-When compressing an archive with WinZIP AES enabled, by default it uses 256 bit encryption. During decompression minizip will use whatever bit encryption was specified when the entry was added to the archive.
+When compressing an archive with WinZIP AES enabled, by default it uses 256 bit encryption. During decompression whatever bit encryption was specified when the entry was added to the archive will be used.
 
 WinZip AES encryption uses CTR on top of ECB which prevents identical ciphertext blocks that might occur when using ECB by itself. More details about the WinZIP AES format can be found in the [winzip documentation](zip/winzip_aes.md).
 
