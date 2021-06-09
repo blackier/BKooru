@@ -10,11 +10,12 @@
       <Command>xcopy "$(LibSrcPath)include\*" "$(LibIncludePath)" /Y /C /Q /R /D /S /E</Command>
     </PostBuildEvent>
     <ClCompile>
-      <PreprocessorDefinitions>BUILDING_UV_SHARED;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x0600;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>BUILDING_UV_SHARED;WIN32_LEAN_AND_MEAN;_WIN32_WINNT=0x0602;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(LibSrcPath)include\;$(LibSrcPath)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>psapi.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;user32.lib;advapi32.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
