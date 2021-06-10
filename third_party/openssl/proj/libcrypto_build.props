@@ -6,19 +6,26 @@
     <LibIncludePath>$(ProjectDir)..\include\</LibIncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
-    <PreBuildEvent>
-      <Command>xcopy "$(LibSrcPath)..\pl_file\*" "$(LibSrcPath)" /Y /C /Q /R /S /E</Command>
-    </PreBuildEvent>
     <ClCompile>
-      <PreprocessorDefinitions>ZLIB;ZLIB_SHARED;OPENSSL_SYS_WIN32;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_USE_APPLINK;LIBZ="ZLIB1";L_ENDIAN;OPENSSL_PIC;OPENSSLDIR="";ENGINESDIR="";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(LibSrcPath)include\;$(LibSrcPath)crypto\ec\curve448\arch_32\;$(LibSrcPath)crypto\ec\curve448\;$(LibSrcPath)crypto\modes\;$(LibSrcPath)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>ZLIB;ZLIB_SHARED;OPENSSL_SYS_WIN32;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_WINSOCK_DEPRECATED_NO_WARNINGS;OPENSSL_USE_APPLINK;L_ENDIAN;OPENSSL_PIC;OPENSSLDIR=".";ENGINESDIR=".";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Condition="'$(Platform)'=='Win32'">
+      <AdditionalIncludeDirectories>$(LibSrcPath)..\pl_file\win32\crypto\;$(LibSrcPath)..\pl_file\win32\include\;$(LibSrcPath)..\pl_file\win32\include\crypto\;$(LibSrcPath)include\;$(LibSrcPath)crypto\ec\curve448\arch_32\;$(LibSrcPath)crypto\ec\curve448\;$(LibSrcPath)crypto\modes\;$(LibSrcPath)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Condition="'$(Platform)'=='x64'">
+      <AdditionalIncludeDirectories>$(LibSrcPath)..\pl_file\win64a\crypto\;$(LibSrcPath)..\pl_file\win64a\include\;$(LibSrcPath)..\pl_file\win64a\include\crypto\;$(LibSrcPath)include\;$(LibSrcPath)crypto\ec\curve448\arch_32\;$(LibSrcPath)crypto\ec\curve448\;$(LibSrcPath)crypto\modes\;$(LibSrcPath)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>ws2_32.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ModuleDefinitionFile>$(LibSrcPath)libcrypto.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>$(LibSrcPath)..\pl_file\libcrypto.def</ModuleDefinitionFile>
     </Link>
-    <PostBuildEvent>
-      <Command>xcopy "$(LibSrcPath)include\*" "$(LibIncludePath)openssl\" /Y /C /Q /R /S /E /D</Command>
+    <PostBuildEvent  Condition="'$(Platform)'=='Win32'">
+      <Command>xcopy "$(LibSrcPath)include\*" "$(LibIncludePath)openssl\" /Y /C /Q /R /S /E /D
+xcopy "$(LibSrcPath)..\pl_file\win32\include\*" "$(LibIncludePath)openssl\" /Y /C /Q /R /S /E /D</Command>
+    </PostBuildEvent>
+    <PostBuildEvent Condition="'$(Platform)'=='x64'">
+      <Command>xcopy "$(LibSrcPath)include\*" "$(LibIncludePath)openssl\" /Y /C /Q /R /S /E /D
+xcopy "$(LibSrcPath)..\pl_file\win64a\include\*" "$(LibIncludePath)openssl\" /Y /C /Q /R /S /E /D</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

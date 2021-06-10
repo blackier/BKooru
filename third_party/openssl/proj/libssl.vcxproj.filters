@@ -154,9 +154,4 @@
       <Filter>Source Files\statem</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="..\src\libssl.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
-  </ItemGroup>
 </Project>
