@@ -11,7 +11,7 @@
       <PreprocessorDefinitions>BUILDING_LIBCURL;USE_OPENSSL;USE_ARES;HAVE_ZLIB_H;HAVE_ZLIB;HAVE_LIBZ;USE_WIN32_IDN;WANT_IDN_PROTOTYPES;USE_IPV6;USE_WINDOWS_SSPI;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;wldap32.lib;crypt32.lib;normaliz.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;wldap32.lib;advapi32.lib;crypt32.lib;normaliz.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(LibSrcPath)include\curl\*.h" "$(LibIncludePath)curl\" /Y /C /Q /R /S /E /D</Command>

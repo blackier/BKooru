@@ -276,9 +276,6 @@
     <ClCompile Include="..\src\lib\rtsp.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\lib\security.c">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\lib\select.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
@@ -456,128 +453,41 @@
     <ClCompile Include="..\src\lib\vssh\libssh.c">
       <Filter>Source Files\lib\vssh</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_bname.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\vauth\gsasl.c">
+      <Filter>Source Files\lib\vauth</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cb_dbg.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\vquic\vquic.c">
+      <Filter>Source Files\lib\vquic</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cb_hdr.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\vtls\keylog.c">
+      <Filter>Source Files\lib\vtls</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cb_prg.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\vtls\rustls.c">
+      <Filter>Source Files\lib\vtls</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cb_rea.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\bufref.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cb_see.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\c-hyper.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cb_wrt.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\dynbuf.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_cfgable.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\easygetopt.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_convert.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\easyoptions.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_dirhie.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\hsts.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_doswin.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\http_aws_sigv4.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\src\tool_easysrc.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_filetime.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_formparse.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_getparam.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_getpass.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_help.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_helpers.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_homedir.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_hugehelp.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_libinfo.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_metalink.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_msgs.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_operate.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_operhlp.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_panykey.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_paramhlp.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_parsecfg.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_progress.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_setopt.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_sleep.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_strdup.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_urlglob.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_util.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_vms.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_writeout.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_writeout_json.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_xattr.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\slist_wc.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\src\tool_binmode.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\lib\version_win32.c">
+      <Filter>Source Files\lib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

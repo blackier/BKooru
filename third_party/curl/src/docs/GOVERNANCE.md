@@ -49,8 +49,8 @@ Donations to the project can also come in form of server hosting, providing
 services and paying for people to work on curl related code etc. Usually, such
 donations are services paid for directly by the sponsors.
 
-We grade sponsors in a few different levels and if they meet the criterias,
-they can be mentioned on the Sponsors page on the curl web site.
+We grade sponsors in a few different levels and if they meet the criteria,
+they can be mentioned on the Sponsors page on the curl website.
 
 ## Commercial Support
 
@@ -103,7 +103,7 @@ Feltzing serve as backup admins for when Daniel is gone or unable.
 The primary server is paid for by Haxx. The machine is physically located in a
 server bunker in Stockholm Sweden, operated by the company Portlane.
 
-The web site contents are served to the web via Fastly and Daniel is the
+The website contents are served to the web via Fastly and Daniel is the
 primary curl contact with Fastly.
 
 ### BDFL
@@ -131,7 +131,7 @@ within the area of personal expertise and experience.
 
 ### Recommendations
 
-- we require two-factor authentication enabled on your github account to
+- we require two-factor authentication enabled on your GitHub account to
   reduce risk of malicious source code tampering
 - consider enabling signed git commits for additional verification of changes
 
@@ -142,7 +142,7 @@ When you're merging patches/PRs...
 - make sure the commit messages follow our template
 - squash patch sets into a few logical commits even if the PR didn't, if
   necessary
-- avoid the "merge" button on github, do it "manually" instead to get full
+- avoid the "merge" button on GitHub, do it "manually" instead to get full
   control and full audit trail (github leaves out you as "Committer:")
 - remember to credit the reporter and the helpers!
 

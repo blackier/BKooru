@@ -5,11 +5,11 @@
 #                            | (__| |_| |  _ <| |___
 #                             \___|\___/|_| \_\_____|
 #
-# Copyright (C) 1998 - 2020, Daniel Stenberg, <daniel@haxx.se>, et al.
+# Copyright (C) 1998 - 2021, Daniel Stenberg, <daniel@haxx.se>, et al.
 #
 # This software is licensed as described in the file COPYING, which
 # you should have received as part of this distribution. The terms
-# are also available at https://curl.haxx.se/docs/copyright.html.
+# are also available at https://curl.se/docs/copyright.html.
 #
 # You may opt to use, copy, modify, merge, publish, distribute and/or sell
 # copies of the Software, and permit persons to whom the Software is
@@ -34,7 +34,8 @@ UNITPROGS = unit1300 unit1301 unit1302 unit1303 unit1304 unit1305 unit1307 \
  unit1600 unit1601 unit1602 unit1603 unit1604 unit1605 unit1606 unit1607 \
  unit1608 unit1609 unit1610 unit1611 unit1612 \
  unit1620 unit1621 \
- unit1650 unit1651 unit1652 unit1653 unit1654 unit1655
+ unit1650 unit1651 unit1652 unit1653 unit1654 unit1655 \
+ unit1660 unit1661
 
 unit1300_SOURCES = unit1300.c $(UNITFILES)
 unit1300_CPPFLAGS = $(AM_CPPFLAGS)
@@ -154,3 +155,8 @@ unit1654_CPPFLAGS = $(AM_CPPFLAGS)
 unit1655_SOURCES = unit1655.c $(UNITFILES)
 unit1655_CPPFLAGS = $(AM_CPPFLAGS)
 
+unit1660_SOURCES = unit1660.c $(UNITFILES)
+unit1660_CPPFLAGS = $(AM_CPPFLAGS)
+
+unit1661_SOURCES = unit1661.c $(UNITFILES)
+unit1661_CPPFLAGS = $(AM_CPPFLAGS)

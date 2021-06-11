@@ -1,5 +1,9 @@
 # Code defines to disable features and protocols
 
+## CURL_DISABLE_ALTSVC
+
+Disable support for Alt-Svc: HTTP headers.
+
 ## CURL_DISABLE_COOKIES
 
 Disable support for HTTP cookies.
@@ -24,9 +28,18 @@ Disable the FILE protocol
 
 Disable the FTP (and FTPS) protocol
 
+## CURL_DISABLE_GETOPTIONS
+
+Disable the `curl_easy_options` API calls that lets users get information
+about existing options to `curl_easy_setopt`.
+
 ## CURL_DISABLE_GOPHER
 
 Disable the GOPHER protocol.
+
+## CURL_DISABLE_HSTS
+
+Disable the HTTP Strict Transport Security support.
 
 ## CURL_DISABLE_HTTP
 
@@ -56,6 +69,10 @@ Disable the --libcurl option from the curl tool.
 ## CURL_DISABLE_MIME
 
 Disable MIME support.
+
+## CURL_DISABLE_MQTT
+
+Disable MQTT support.
 
 ## CURL_DISABLE_NETRC
 
@@ -96,6 +113,11 @@ Disable the SMB(S) protocols
 ## CURL_DISABLE_SMTP
 
 Disable the SMTP(S) protocols
+
+## CURL_DISABLE_SOCKETPAIR
+
+Disable the use of socketpair internally to allow waking up and canceling
+curl_multi_poll().
 
 ## CURL_DISABLE_TELNET
 
