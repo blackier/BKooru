@@ -6,10 +6,10 @@
 /x64
 
 # project setting
-/projs/*/*
-!/projs/*/*.vcxproj
-!/projs/*/*.props
-!/projs/*/*.filters
+/proj/*/*
+!/proj/*/*.vcxproj
+!/proj/*/*.props
+!/proj/*/*.filters
 
 # third_party setting
 /third_party/*/*
