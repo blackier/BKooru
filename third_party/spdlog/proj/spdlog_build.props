@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <LibSrcPath>$(ProjectDir)..\src\</LibSrcPath>
+    <LibIncludePath>$(ProjectDir)..\include\</LibIncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(LibSrcPath)include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SPDLOG_SHARED_LIB;FMT_EXPORT;FMT_SHARED;SPDLOG_COMPILED_LIB;spdlog_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>/Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4251;4275</DisableSpecificWarnings>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>xcopy "$(LibSrcPath)include\*.h" "$(LibIncludePath)" /Y /C /Q /R /S /E /D</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="LibSrcPath">
+      <Value>$(LibSrcPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="LibIncludePath">
+      <Value>$(LibIncludePath)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

@@ -44,6 +44,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "concurrentqueue", "third_pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rxcpp", "third_party\rxcpp\proj\rxcpp.vcxproj", "{B5826943-A2CB-4FB7-A693-D7095E59E8AD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spdlog", "third_party\spdlog\proj\spdlog.vcxproj", "{E59F831C-B076-40E0-AD4A-8D5B691F0B28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -148,6 +150,14 @@ Global
 		{B5826943-A2CB-4FB7-A693-D7095E59E8AD}.Release|x64.Build.0 = Release|x64
 		{B5826943-A2CB-4FB7-A693-D7095E59E8AD}.Release|x86.ActiveCfg = Release|Win32
 		{B5826943-A2CB-4FB7-A693-D7095E59E8AD}.Release|x86.Build.0 = Release|Win32
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Debug|x64.ActiveCfg = Debug|x64
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Debug|x64.Build.0 = Debug|x64
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Debug|x86.ActiveCfg = Debug|Win32
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Debug|x86.Build.0 = Debug|Win32
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Release|x64.ActiveCfg = Release|x64
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Release|x64.Build.0 = Release|x64
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Release|x86.ActiveCfg = Release|Win32
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,6 +175,7 @@ Global
 		{0765D09B-047F-477E-B0AA-471DA79F75D8} = {F32130E5-9E42-4EE1-9F57-559003617EBA}
 		{81C5C1A0-B4CC-47E4-9CAB-8AD00FECD3BC} = {F32130E5-9E42-4EE1-9F57-559003617EBA}
 		{B5826943-A2CB-4FB7-A693-D7095E59E8AD} = {F32130E5-9E42-4EE1-9F57-559003617EBA}
+		{E59F831C-B076-40E0-AD4A-8D5B691F0B28} = {F32130E5-9E42-4EE1-9F57-559003617EBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F628DC5C-F850-4904-B943-74DE0FA6FC7B}
