@@ -1,3 +1,3 @@
 Source code: https://github.com/open-source-parsers/jsoncpp
 
-Current version: 1.9.4
+Current version: 1.9.5
