@@ -5,7 +5,7 @@
  *                            | (__| |_| |  _ <| |___
  *                             \___|\___/|_| \_\_____|
  *
- * Copyright (C) 2019 - 2020, Daniel Stenberg, <daniel@haxx.se>, et al.
+ * Copyright (C) 2019 - 2022, Daniel Stenberg, <daniel@haxx.se>, et al.
  *
  * This software is licensed as described in the file COPYING, which
  * you should have received as part of this distribution. The terms
@@ -21,7 +21,7 @@
  ***************************************************************************/
 /*
  * The Alt-Svc: header is defined in RFC 7838:
- * https://tools.ietf.org/html/rfc7838
+ * https://datatracker.ietf.org/doc/html/rfc7838
  */
 #include "curl_setup.h"
 
@@ -53,6 +53,8 @@
 #if defined(USE_QUICHE) && !defined(UNITTESTS)
 #define H3VERSION "h3-29"
 #elif defined(USE_NGTCP2) && !defined(UNITTESTS)
+#define H3VERSION "h3-29"
+#elif defined(USE_MSH3) && !defined(UNITTESTS)
 #define H3VERSION "h3-29"
 #else
 #define H3VERSION "h3"
@@ -264,7 +266,7 @@ struct altsvcinfo *Curl_altsvc_init(void)
 
   /* set default behavior */
   asi->flags = CURLALTSVC_H1
-#ifdef USE_NGHTTP2
+#ifdef USE_HTTP2
     | CURLALTSVC_H2
 #endif
 #ifdef ENABLE_QUIC
@@ -460,7 +462,7 @@ CURLcode Curl_altsvc_parse(struct Curl_easy *data,
   (void)data;
 #endif
   if(result) {
-    infof(data, "Excessive alt-svc header, ignoring...\n");
+    infof(data, "Excessive alt-svc header, ignoring.");
     return CURLE_OK;
   }
 
@@ -496,7 +498,7 @@ CURLcode Curl_altsvc_parse(struct Curl_easy *data,
             p++;
           len = p - hostp;
           if(!len || (len >= MAX_ALTSVC_HOSTLEN)) {
-            infof(data, "Excessive alt-svc host name, ignoring...\n");
+            infof(data, "Excessive alt-svc host name, ignoring.");
             dstalpnid = ALPN_none;
           }
           else {
@@ -513,7 +515,7 @@ CURLcode Curl_altsvc_parse(struct Curl_easy *data,
           /* a port number */
           unsigned long port = strtoul(++p, &end_ptr, 10);
           if(port > USHRT_MAX || end_ptr == p || *end_ptr != '\"') {
-            infof(data, "Unknown alt-svc port number, ignoring...\n");
+            infof(data, "Unknown alt-svc port number, ignoring.");
             dstalpnid = ALPN_none;
           }
           p = end_ptr;
@@ -579,12 +581,12 @@ CURLcode Curl_altsvc_parse(struct Curl_easy *data,
             as->expires = maxage + time(NULL);
             as->persist = persist;
             Curl_llist_insert_next(&asi->list, asi->list.tail, as, &as->node);
-            infof(data, "Added alt-svc: %s:%d over %s\n", dsthost, dstport,
+            infof(data, "Added alt-svc: %s:%d over %s", dsthost, dstport,
                   Curl_alpnid2str(dstalpnid));
           }
         }
         else {
-          infof(data, "Unknown alt-svc protocol \"%s\", skipping...\n",
+          infof(data, "Unknown alt-svc protocol \"%s\", skipping.",
                 alpnbuf);
         }
       }

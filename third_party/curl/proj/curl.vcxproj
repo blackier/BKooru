@@ -208,10 +208,11 @@
     <ClCompile Include="..\src\lib\getenv.c" />
     <ClCompile Include="..\src\lib\getinfo.c" />
     <ClCompile Include="..\src\lib\gopher.c" />
+    <ClCompile Include="..\src\lib\h2h3.c" />
     <ClCompile Include="..\src\lib\hash.c" />
+    <ClCompile Include="..\src\lib\headers.c" />
     <ClCompile Include="..\src\lib\hmac.c" />
     <ClCompile Include="..\src\lib\hostasyn.c" />
-    <ClCompile Include="..\src\lib\hostcheck.c" />
     <ClCompile Include="..\src\lib\hostip.c" />
     <ClCompile Include="..\src\lib\hostip4.c" />
     <ClCompile Include="..\src\lib\hostip6.c" />
@@ -241,7 +242,6 @@
     <ClCompile Include="..\src\lib\mqtt.c" />
     <ClCompile Include="..\src\lib\multi.c" />
     <ClCompile Include="..\src\lib\netrc.c" />
-    <ClCompile Include="..\src\lib\non-ascii.c" />
     <ClCompile Include="..\src\lib\nonblock.c" />
     <ClCompile Include="..\src\lib\openldap.c" />
     <ClCompile Include="..\src\lib\parsedate.c" />
@@ -274,6 +274,7 @@
     <ClCompile Include="..\src\lib\system_win32.c" />
     <ClCompile Include="..\src\lib\telnet.c" />
     <ClCompile Include="..\src\lib\tftp.c" />
+    <ClCompile Include="..\src\lib\timediff.c" />
     <ClCompile Include="..\src\lib\timeval.c" />
     <ClCompile Include="..\src\lib\transfer.c" />
     <ClCompile Include="..\src\lib\url.c" />
@@ -293,6 +294,7 @@
     <ClCompile Include="..\src\lib\vauth\vauth.c" />
     <ClCompile Include="..\src\lib\version.c" />
     <ClCompile Include="..\src\lib\version_win32.c" />
+    <ClCompile Include="..\src\lib\vquic\msh3.c" />
     <ClCompile Include="..\src\lib\vquic\ngtcp2.c" />
     <ClCompile Include="..\src\lib\vquic\quiche.c" />
     <ClCompile Include="..\src\lib\vquic\vquic.c" />
@@ -301,10 +303,9 @@
     <ClCompile Include="..\src\lib\vtls\bearssl.c" />
     <ClCompile Include="..\src\lib\vtls\gskit.c" />
     <ClCompile Include="..\src\lib\vtls\gtls.c" />
+    <ClCompile Include="..\src\lib\vtls\hostcheck.c" />
     <ClCompile Include="..\src\lib\vtls\keylog.c" />
-    <ClCompile Include="..\src\lib\vtls\mbedtls.c" />
     <ClCompile Include="..\src\lib\vtls\mbedtls_threadlock.c" />
-    <ClCompile Include="..\src\lib\vtls\mesalink.c" />
     <ClCompile Include="..\src\lib\vtls\nss.c" />
     <ClCompile Include="..\src\lib\vtls\openssl.c" />
     <ClCompile Include="..\src\lib\vtls\rustls.c" />
@@ -313,9 +314,9 @@
     <ClCompile Include="..\src\lib\vtls\sectransp.c" />
     <ClCompile Include="..\src\lib\vtls\vtls.c" />
     <ClCompile Include="..\src\lib\vtls\wolfssl.c" />
+    <ClCompile Include="..\src\lib\vtls\x509asn1.c" />
     <ClCompile Include="..\src\lib\warnless.c" />
     <ClCompile Include="..\src\lib\wildcard.c" />
-    <ClCompile Include="..\src\lib\x509asn1.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

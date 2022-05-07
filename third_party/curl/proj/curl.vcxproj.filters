@@ -159,9 +159,6 @@
     <ClCompile Include="..\src\lib\hostasyn.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\lib\hostcheck.c">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\lib\hostip.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
@@ -241,9 +238,6 @@
       <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\src\lib\netrc.c">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\non-ascii.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\src\lib\nonblock.c">
@@ -363,9 +357,6 @@
     <ClCompile Include="..\src\lib\wildcard.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\lib\x509asn1.c">
-      <Filter>Source Files\lib</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\lib\vauth\digest.c">
       <Filter>Source Files\lib\vauth</Filter>
     </ClCompile>
@@ -402,9 +393,6 @@
     <ClCompile Include="..\src\lib\vauth\cram.c">
       <Filter>Source Files\lib\vauth</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\lib\vtls\mesalink.c">
-      <Filter>Source Files\lib\vtls</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\lib\vtls\nss.c">
       <Filter>Source Files\lib\vtls</Filter>
     </ClCompile>
@@ -433,9 +421,6 @@
       <Filter>Source Files\lib\vtls</Filter>
     </ClCompile>
     <ClCompile Include="..\src\lib\vtls\gtls.c">
-      <Filter>Source Files\lib\vtls</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\lib\vtls\mbedtls.c">
       <Filter>Source Files\lib\vtls</Filter>
     </ClCompile>
     <ClCompile Include="..\src\lib\vtls\mbedtls_threadlock.c">
@@ -487,6 +472,24 @@
       <Filter>Source Files\lib</Filter>
     </ClCompile>
     <ClCompile Include="..\src\lib\version_win32.c">
+      <Filter>Source Files\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lib\vquic\msh3.c">
+      <Filter>Source Files\lib\vquic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lib\vtls\hostcheck.c">
+      <Filter>Source Files\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lib\vtls\x509asn1.c">
+      <Filter>Source Files\lib\vtls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lib\h2h3.c">
+      <Filter>Source Files\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lib\headers.c">
+      <Filter>Source Files\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lib\timediff.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
   </ItemGroup>
