@@ -185,5 +185,17 @@
     <ClCompile Include="..\src\src\lib\ares_version.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\src\lib\ares__addrinfo2hostent.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\src\lib\ares__addrinfo_localhost.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\src\lib\ares_parse_uri_reply.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\src\lib\ares_parse_caa_reply.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

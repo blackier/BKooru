@@ -12,7 +12,7 @@
       <AdditionalIncludeDirectories>$(LibSrcPath)include;$(LibSrcPath)src\lib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;Iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(LibSrcPath)include\*.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D</Command>
