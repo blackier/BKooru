@@ -162,6 +162,12 @@
     <ClCompile Include="..\src\keccak_simd.cpp" />
     <ClCompile Include="..\src\lea.cpp" />
     <ClCompile Include="..\src\lea_simd.cpp" />
+    <ClCompile Include="..\src\lsh256.cpp" />
+    <ClCompile Include="..\src\lsh256_avx.cpp" />
+    <ClCompile Include="..\src\lsh256_sse.cpp" />
+    <ClCompile Include="..\src\lsh512.cpp" />
+    <ClCompile Include="..\src\lsh512_avx.cpp" />
+    <ClCompile Include="..\src\lsh512_sse.cpp" />
     <ClCompile Include="..\src\luc.cpp" />
     <ClCompile Include="..\src\mars.cpp" />
     <ClCompile Include="..\src\marss.cpp" />
