@@ -22,3 +22,4 @@
 !/third_party/*/proj/*.vcxproj
 !/third_party/*/proj/*.props
 !/third_party/*/proj/*.filters
+!/third_party/*/*.bat
