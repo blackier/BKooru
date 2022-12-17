@@ -31,3 +31,6 @@
 [submodule "curl"]
 	path = third_party/curl/src
 	url = https://github.com/curl/curl
+[submodule "zlib"]
+	path = third_party/zlib/src
+	url = https://github.com/madler/zlib
