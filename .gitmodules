@@ -28,3 +28,6 @@
 [submodule "spdlog"]
 	path = third_party/spdlog/src
 	url = https://github.com/gabime/spdlog
+[submodule "curl"]
+	path = third_party/curl/src
+	url = https://github.com/curl/curl
