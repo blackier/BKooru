@@ -7,3 +7,6 @@
 [submodule "cryptopp"]
 	path = third_party/cryptopp/src
 	url = https://github.com/weidai11/cryptopp
+[submodule "jsoncpp"]
+	path = third_party/jsoncpp/src
+	url = https://github.com/open-source-parsers/jsoncpp
