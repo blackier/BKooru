@@ -22,3 +22,6 @@
 [submodule "pugixml"]
 	path = third_party/pugixml/src
 	url = https://github.com/zeux/pugixml
+[submodule "rxcpp"]
+	path = third_party/rxcpp/src
+	url = https://github.com/ReactiveX/RxCpp
