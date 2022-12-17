@@ -10,3 +10,6 @@
 [submodule "jsoncpp"]
 	path = third_party/jsoncpp/src
 	url = https://github.com/open-source-parsers/jsoncpp
+[submodule "libuv"]
+	path = third_party/libuv/src
+	url = https://github.com/libuv/libuv
