@@ -4,3 +4,6 @@
 [submodule "concurrentqueue"]
 	path = third_party/concurrentqueue/src
 	url = https://github.com/cameron314/concurrentqueue
+[submodule "cryptopp"]
+	path = third_party/cryptopp/src
+	url = https://github.com/weidai11/cryptopp
