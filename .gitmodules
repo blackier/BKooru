@@ -19,3 +19,6 @@
 [submodule "openssl"]
 	path = third_party/openssl/src
 	url = https://github.com/openssl/openssl
+[submodule "pugixml"]
+	path = third_party/pugixml/src
+	url = https://github.com/zeux/pugixml
