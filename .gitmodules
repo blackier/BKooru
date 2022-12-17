@@ -1,3 +1,6 @@
 [submodule "c-ares"]
 	path = third_party/c-ares/src
 	url = https://github.com/c-ares/c-ares
+[submodule "concurrentqueue"]
+	path = third_party/concurrentqueue/src
+	url = https://github.com/cameron314/concurrentqueue
