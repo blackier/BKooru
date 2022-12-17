@@ -25,3 +25,6 @@
 [submodule "rxcpp"]
 	path = third_party/rxcpp/src
 	url = https://github.com/ReactiveX/RxCpp
+[submodule "spdlog"]
+	path = third_party/spdlog/src
+	url = https://github.com/gabime/spdlog
