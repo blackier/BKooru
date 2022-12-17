@@ -13,3 +13,6 @@
 [submodule "libuv"]
 	path = third_party/libuv/src
 	url = https://github.com/libuv/libuv
+[submodule "minizip"]
+	path = third_party/minizip/src
+	url = https://github.com/zlib-ng/minizip-ng
