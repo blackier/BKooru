@@ -16,8 +16,9 @@
 !/third_party/*/*.md
 !/third_party/*/def_file/
 !/third_party/*/pl_file/
-!/third_party/*/src/
-!/third_party/*/proj/
+!/third_party/*/src
+!/third_party/*/proj
+
 /third_party/*/proj/*
 !/third_party/*/proj/*.vcxproj
 !/third_party/*/proj/*.props

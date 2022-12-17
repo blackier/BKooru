@@ -17,6 +17,9 @@
     <PostBuildEvent>
       <Command>xcopy "$(LibSrcPath)include\*.h" "$(LibIncludePath)c-ares\" /Y /C /Q /R /D</Command>
     </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>copy "$(LibSrcPath)include\ares_build.h.dist" "$(LibSrcPath)include\ares_build.h" /y</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <BuildMacro Include="LibSrcPath">
